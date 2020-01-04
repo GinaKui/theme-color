@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ColorBox from './ColorBox';
 import "./Palette.css";
+
 class Palette extends Component {
   render() {
     const colorBoxes = this.props.colors.map(color => {
@@ -8,9 +9,11 @@ class Palette extends Component {
     });
     return (
       <div className="Palette">
+        {/* Navbar should be here */}
         <div className="Palette-colors">
           {colorBoxes}
         </div>
+        {/* footer should be here */}
       </div>
     );
   }
