@@ -30,7 +30,7 @@ class Palette extends Component {
         <Navbar 
           level={level} 
           changeLevel={this.changeLevel}
-          handleChange={this.changeFormat}
+          handleFormatChange={this.changeFormat}
           format={format}
         />
         {/* Navbar should be here */}
