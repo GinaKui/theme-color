@@ -11,7 +11,7 @@ export default class ColorBox extends Component {
 
   execCopy() {
     this.setState({ copied: true }, () => {
-      setTimeout(() => this.setState({ copied: false }), 1000);
+      setTimeout(() => this.setState({ copied: false }), 1500);
     });
   }
 
