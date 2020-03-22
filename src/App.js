@@ -14,12 +14,12 @@ export default class App extends Component {
     });
   }
   render() {
-    return (
+   return (
       <Switch>
         <Route 
           exact 
           path="/" 
-          render={() => <PaletteList palettes={seedColors} />} 
+          render={routeProps => <PaletteList palettes={seedColors} {...routeProps} />} 
         />
         <Route 
           exact 
@@ -38,7 +38,7 @@ export default class App extends Component {
           />)}
         />
       </Switch> 
-    );
+    ); 
   }
 }
 
