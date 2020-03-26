@@ -50,7 +50,6 @@ class SingleColorPalette extends Component {
           showAllColors={false}
           format={format}
         />
-        <h1>Single Color Palette!!</h1>
         <div className={classes.colors}>
           {colorBoxes}
           <div className={classes.goBack}>
