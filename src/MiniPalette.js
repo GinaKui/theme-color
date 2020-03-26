@@ -5,7 +5,7 @@ import styles from './styles/MiniPaletteStyles';
 
 
 function MiniPalette(props) {
-  const { classes, paletteName, emoji, colors } = props;
+  const { classes, paletteName, emoji, id, colors, handleClick, handleDelete } = props;
   const miniColorBoxes = colors.map(color => (
     <div 
       className={classes.miniColor}
@@ -14,11 +14,14 @@ function MiniPalette(props) {
     </div>
   ));
 
+  const deletePalette = evt => {
+    evt.stopPropagation();
+    handleDelete(id);
+  }
+
   return (
-    <div className={classes.root} onClick={props.handleClick}>
-      <div>
-        <DeleteIcon className={classes.deleteIcon} />
-      </div>
+    <div className={classes.root} onClick={handleClick}>
+      <DeleteIcon className={classes.deleteIcon} onClick={deletePalette} />
       <div className={classes.colors}>
         {miniColorBoxes}
       </div>
