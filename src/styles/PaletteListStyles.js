@@ -1,11 +1,15 @@
 import sizes from "./sizes";
+import bg from './bg.svg';
 export default {
   root: {
-    backgroundColor: 'darkblue',
     height: '100vh',
     display: 'flex',
     alignItems: 'flex-start',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#ffffff',
+    backgroundImage: `url(${bg})`,
+    /* background by SVGBackgrounds.com */
+    overflow: "scroll"
   },
   container: {
     width: '50%',
@@ -29,6 +33,9 @@ export default {
     "& a": {
       color: 'white'
     }
+  },
+  heading: {
+    fontSize: "2rem"
   },
   palettes: {
     boxSizing: 'border-box',
