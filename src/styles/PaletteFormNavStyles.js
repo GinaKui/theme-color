@@ -1,4 +1,5 @@
 import { DRAWER_WIDTH } from '../constants';
+import sizes from './sizes';
 const styles = theme => ({
   root: {
     display: "flex"
@@ -29,10 +30,15 @@ const styles = theme => ({
     marginRight: 20,
   },
   navBtns: {
-    marginRight: "1rem"
+    marginRight: "1rem",
+
   },
   button: {
-    margin: "0 0.5rem"
+    margin: "0, .5rem",
+    [sizes.down("xs")]: {
+      margin: "0, .2rem",
+      padding: ".3rem"
+    }
   }
 });
 
