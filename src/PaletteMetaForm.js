@@ -37,8 +37,8 @@ function PaletteMetaForm(props) {
     handleSubmit({
       paletteName: newPaletteName,
       emoji: emoji.native,
-      
     });
+    setStage('');
   };
 
   return (
