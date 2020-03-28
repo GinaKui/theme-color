@@ -13,6 +13,7 @@ import DraggableColorList from './DraggableColorList';
 import { arrayMove } from 'react-sortable-hoc';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import styles from './styles/NewPaletteFormStyles';
+import seedColors from './seedColors';
 
 const useStyles = makeStyles(styles);
 
@@ -20,7 +21,7 @@ export default function NewPaletteForm(props) {
   const { maxColors, palettes } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [colors, setColors] = React.useState(props.palettes[0].colors);
+  const [colors, setColors] = React.useState(seedColors[0].colors);
   const paletteIsFull = colors.length >= maxColors;
 
   const handleDrawerOpen = () => {
@@ -36,15 +37,19 @@ export default function NewPaletteForm(props) {
     setColors([...colors, newColor]);
   };
 
-
   const clearColors = () => {
     setColors([]);
   };
 
   const addRandomColor = () => {
     const allColors = palettes.map( p => p.colors ).flat();
-    const rand = Math.floor(Math.random() * allColors.length);
-    const randomColor = allColors[rand];
+    let isDupplicateColor = true;
+    let randomColor = undefined;
+    while(isDupplicateColor) {
+      const rand = Math.floor(Math.random() * allColors.length);
+      randomColor = allColors[rand];
+      isDupplicateColor = colors.some(color => color.name === randomColor.name);
+    }
     setColors([...colors, randomColor]);
     console.log(allColors);
   };

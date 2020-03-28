@@ -11,6 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import MiniPalette from './MiniPalette';
+
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
 import { withStyles } from '@material-ui/core/styles';
@@ -25,6 +26,7 @@ class PaletteList extends Component {
     };
     this.openDialog = this.openDialog.bind(this);
     this.closeDialog = this.closeDialog.bind(this);
+    this.goToPalette = this.goToPalette.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
   openDialog(id) {
@@ -56,7 +58,7 @@ class PaletteList extends Component {
                 <MiniPalette
                   {...palette}
                   key={palette.id}
-                  handleClick={() => this.goToPalette(palette.id)}
+                  goToPalette={this.goToPalette}
                   handleDelete={this.openDialog}
                   //handleDelete={deletePalette}
                 />
