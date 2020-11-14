@@ -11,8 +11,8 @@ import { generatePalette } from "./colorHelpers";
 import './styles/App.css';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
     this.state = { palettes: savedPalettes || seedColors };
     this.findPalette = this.findPalette.bind(this);
@@ -24,13 +24,13 @@ export default class App extends Component {
       return palette.id === id;
     });
   }
+  savePalette(newPalette) {
+    this.setState({palettes: [...this.state.palettes, newPalette]}, this.syncLocalStorage);
+  }
   deletePalette(id) {
     this.setState(prevState => ({
       palettes: prevState.palettes.filter(palette => palette.id !== id)
     }), this.syncLocalStorage);
-  }
-  savePalette(newPalette) {
-    this.setState({palettes: [...this.state.palettes, newPalette]}, this.syncLocalStorage);
   }
   syncLocalStorage() {
     //save palettes to local storage
