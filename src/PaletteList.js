@@ -18,8 +18,8 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/PaletteListStyles';
 
 class PaletteList extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       openDeleteDialog: false,
       deletingId: ""
@@ -83,7 +83,7 @@ class PaletteList extends Component {
                   <CloseIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary="Delete">Cancel</ListItemText>
+              <ListItemText primary="Cancel">Cancel</ListItemText>
             </ListItem>
           </List>
         </Dialog>
