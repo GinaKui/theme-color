@@ -43,7 +43,7 @@ function PaletteFormNav(props) {
             <ChevronRightIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Create a Palette
+            Create a New Theme
           </Typography>
         </Toolbar>
         <div className={classes.navBtns}>

@@ -32,9 +32,12 @@ export default function NewPaletteForm(props) {
     setOpen(false);
   };
 
-
-  const addNewColor = (newColor) => {
+  const addColor = newColor => {
     setColors([...colors, newColor]);
+  };
+
+  const removeColor = colorName => {
+    setColors(colors.filter(({ name }) => name !== colorName));
   };
 
   const clearColors = () => {
@@ -45,13 +48,13 @@ export default function NewPaletteForm(props) {
     const allColors = palettes.map( p => p.colors ).flat();
     let isDupplicateColor = true;
     let randomColor = undefined;
+    // TODO: get a new random color generator
     while(isDupplicateColor) {
       const rand = Math.floor(Math.random() * allColors.length);
       randomColor = allColors[rand];
       isDupplicateColor = colors.some(color => color.name === randomColor.name);
     }
-    setColors([...colors, randomColor]);
-    console.log(allColors);
+    addColor(randomColor);
   };
 
   const handleSubmit = newPalette => {
@@ -61,17 +64,18 @@ export default function NewPaletteForm(props) {
     props.history.push("/");
   };
 
-  const removeColor = colorName => {
-    setColors(colors.filter(({ name }) => name !== colorName));
-  };
-
   const onSortEnd = ({oldIndex, newIndex}) => {
     setColors(arrayMove(colors, oldIndex, newIndex));
   };
 
   return (
     <div className={classes.root}>
-      <PaletteFormNav open={open} palettes={palettes} handleSubmit={handleSubmit} handleDrawerOpen={handleDrawerOpen}/>
+      <PaletteFormNav
+        open={open} 
+        palettes={palettes} 
+        handleSubmit={handleSubmit} 
+        handleDrawerOpen={handleDrawerOpen}
+      />
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -89,13 +93,13 @@ export default function NewPaletteForm(props) {
         <Divider />
         <div className={classes.container}>
           <Typography variant="h4" gutterBottom>
-            Design Your Palette
+            Pick Color
           </Typography>
           <div className={classes.buttons}>
             <Button variant="contained" color="secondary" className={classes.button} onClick={clearColors}>clear palette</Button>
             <Button variant="contained" color="primary" className={classes.button} disabled={paletteIsFull} onClick={addRandomColor}>random color</Button>
           </div>
-          <ColorPickerForm colors={colors} paletteIsFull={paletteIsFull} addNewColor={addNewColor}/>
+          <ColorPickerForm colors={colors} paletteIsFull={paletteIsFull} submitColor={addColor}/>
         </div>
       </Drawer>
       <main
