@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
@@ -10,10 +11,10 @@ class ColorBox extends Component {
   constructor(props) {
     super(props);
     this.state = { copied: false };
-    this.execCopy = this.execCopy.bind(this);
+    this.handleCopy = this.handleCopy.bind(this);
   }
 
-  execCopy() {
+  handleCopy() {
     this.setState({ copied: true }, () => {
       setTimeout(() => this.setState({ copied: false }), 1500);
     });
@@ -22,8 +23,9 @@ class ColorBox extends Component {
   render() {
     const { name, background, id, paletteId, showingFullPalette, classes } = this.props;
     const { copied } = this.state;
+    // TODO: - ColorBox display css property should be refactored to Palette and SingleColorPalette
     return (
-      <CopyToClipboard text={background} onCopy={this.execCopy}>
+      <CopyToClipboard text={background} onCopy={this.handleCopy}>
         <div className={classes.ColorBox} style={{ background }}>
           <div className={clsx(classes.copyOverlay, {[classes.showOverlay]: copied })} style={{ background }} />
           <div className={clsx(classes.copyMessage, {[classes.showMessage]: copied })}>
@@ -46,5 +48,13 @@ class ColorBox extends Component {
     );
   }
 }
+
+ColorBox.propTypes = {
+  name: PropTypes.string.isRequired,
+  background: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  paletteId: PropTypes.string.isRequired,
+  classes: PropTypes.object.isRequired
+};
 
 export default withStyles(styles)(ColorBox);

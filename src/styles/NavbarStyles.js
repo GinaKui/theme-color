@@ -1,3 +1,4 @@
+import { FullscreenExit } from '@material-ui/icons';
 import sizes from './sizes';
 export default {
   Navbar: {
@@ -50,5 +51,10 @@ export default {
   selectContainer: {
     marginLeft: "auto",
     marginRight: "1rem",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between"
+
   }
 };

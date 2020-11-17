@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Slider from 'rc-slider';
+import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Snackbar from '@material-ui/core/Snackbar';
@@ -15,13 +17,15 @@ import 'rc-slider/assets/index.css';
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = { open: true };
+    this.state = { open: false };
     this.handleFormatChange = this.handleFormatChange.bind(this);
     this.closeSnackbar = this.closeSnackbar.bind(this);
   }
   handleFormatChange(evt) {
-    this.setState({ open: true });
-    this.props.handleFormatChange(evt.target.value);
+    if(this.props.format !== evt.target.value) {
+      this.setState({ open: true });
+      this.props.handleFormatChange(evt.target.value);
+    }
   }
   closeSnackbar() {
     this.setState({ open: false });
@@ -38,21 +42,23 @@ class Navbar extends Component {
           <div>
             Level: {level}
             <div className={classes.slider}> 
-              <Slider 
+              <Slider
+                aria-labelledby="slider bar to change color brightness"
                 defaultValue={level} 
                 min={100} 
                 max={900}
-                step={100} 
+                step={100}
                 onAfterChange={changeLevel}
               />
             </div>
           </div>
         )}
         <div className={classes.selectContainer}>
-          <Select onChange={this.handleFormatChange} value={format}>
+          <InputLabel id="color-format-select">Color Format</InputLabel>
+          <Select onChange={this.handleFormatChange} value={format} labelId="color-format-select">
             <MenuItem value="hex">HEX - #000000</MenuItem>
-            <MenuItem value="rgb">RGB - rgb(255, 255, 255)</MenuItem>
-            <MenuItem value="rgba">RGBA - rgba(255, 255, 255, 1.0)</MenuItem>
+            <MenuItem value="rgb">RGB - rgb(0,0,0)</MenuItem>
+            <MenuItem value="rgba">RGBA - rgba(0,0,0,1)</MenuItem>
           </Select>
         </div>
         <Snackbar
@@ -67,7 +73,7 @@ class Navbar extends Component {
               onClick={this.closeSnackbar}
               color="inherit"
               key="close"
-              aria-lable="close"
+              aria-label="close"
             >
               <CloseIcon />
             </IconButton>
@@ -77,5 +83,14 @@ class Navbar extends Component {
     );
   }
 }
+
+Navbar.propTypes = {
+  level: PropTypes.number.isRequired,
+  changeLevel: PropTypes.func.isRequired,
+  handleFormatChange: PropTypes.func.isRequired,
+  format: PropTypes.string.isRequired,
+  showAllColors: PropTypes.bool.isRequired,
+  classes: PropTypes.object.isRequired
+};
 
 export default withStyles(styles)(Navbar);

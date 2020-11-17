@@ -16,11 +16,11 @@ function MiniPalette(props) {
   const deletePalette = evt => {
     evt.stopPropagation();
     props.handleDelete(id);
-  }
+  };
 
   const handleClick = () => {
     goToPalette(id);
-  } 
+  };
 
   return (
     <div className={classes.root} onClick={handleClick}>

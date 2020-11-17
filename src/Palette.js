@@ -15,10 +15,10 @@ class Palette extends Component {
   }
 
   changeLevel(level) {
-    this.setState({level});
+    this.setState({ level });
   }
-  changeFormat(val) {
-    this.setState({ format: val });
+  changeFormat(format) {
+    this.setState({ format });
   }
 
   render() {
@@ -37,7 +37,6 @@ class Palette extends Component {
           format={format}
           showAllColors={true}
         />
-        {/* Navbar should be here */}
         <div className={classes.colors}>
           {colorBoxes}
         </div>
