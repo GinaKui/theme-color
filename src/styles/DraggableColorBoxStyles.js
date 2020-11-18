@@ -4,7 +4,7 @@ export default {
   root: {
     width: "20%",
     height: "25%",
-    margin: "0 auto",
+    margin: "-2px 0",
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
