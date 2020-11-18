@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-import { ChromePicker } from 'react-color';
+import { SketchPicker } from 'react-color';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/ColorPickerFormStyles';
@@ -45,7 +45,12 @@ function ColorPickerForm(props) {
 
   return (
     <div>
-      <ChromePicker color={currentColor} className={classes.picker} onChangeComplete={updateCurrentColor}/>
+      <SketchPicker 
+        color={currentColor}
+        onChangeComplete={updateCurrentColor}
+        className={classes.picker}
+        width={240}
+      />
       <ValidatorForm onSubmit={handleSubmit} instantValidate={false}>
         <TextValidator
           value={newColorName}
@@ -66,8 +71,8 @@ function ColorPickerForm(props) {
           className={classes.addColor}
           style={{ backgroundColor: paletteIsFull ? 'grey' : currentColor }}
         >
-        {paletteIsFull ? 'Palette Full' : 'Add'}
-      </Button>
+          {paletteIsFull ? 'Full' : 'Add'}
+        </Button>
       </ValidatorForm>
     </div>
   )

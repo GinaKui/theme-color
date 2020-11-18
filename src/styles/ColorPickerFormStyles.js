@@ -1,13 +1,13 @@
 export default {
   picker: {
-    width: "100% !important",
-    marginTop: "2rem"
+    width: "100%",
+    margin: "2rem auto"
   },
   addColor: {
     width: "100%",
-    padding: "1rem",
+    padding: "0.5rem",
     marginTop: "1rem",
-    fontSize: "2rem"
+    fontSize: "1.5rem"
   },
   colorNameInput: {
     width: "100%",
