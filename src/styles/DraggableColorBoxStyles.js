@@ -4,11 +4,10 @@ export default {
   root: {
     width: "20%",
     height: "25%",
-    margin: "-2px 0",
+    margin: "0 0 -5px 0",
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-3.5px",
     "&:hover svg": {
       color: "white",
       transform: "scale(1.6)"

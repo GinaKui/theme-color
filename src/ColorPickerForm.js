@@ -5,6 +5,7 @@ import { SketchPicker } from 'react-color';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/ColorPickerFormStyles';
+import chroma from 'chroma-js';
 
 function ColorPickerForm(props) {
   const { colors, paletteIsFull, submitColor, classes } = props;
@@ -63,13 +64,19 @@ function ColorPickerForm(props) {
           validators={['required', 'isColorNameUnique', 'isColorUnique']}
           errorMessages={['this field is required', 'color name has to be unique', 'color already used']}
         />
+        { /* TODO : dynamicly change text color based on currentColor
+          * chroma(currentColor).luminance() doesn't work.
+          * need to figure out solution
+        */}
         <Button
           type="submit"
           variant="contained"
-          color="primary"
           disabled={paletteIsFull}
           className={classes.addColor}
-          style={{ backgroundColor: paletteIsFull ? 'grey' : currentColor }}
+          style={{
+            backgroundColor: paletteIsFull ? 'grey' : currentColor,
+            color: chroma(currentColor).luminance() >= 0.6 ? 'black' : 'white'
+          }}
         >
           {paletteIsFull ? 'Full' : 'Add'}
         </Button>

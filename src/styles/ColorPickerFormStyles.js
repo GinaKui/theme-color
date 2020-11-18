@@ -7,7 +7,7 @@ export default {
     width: "100%",
     padding: "0.5rem",
     marginTop: "1rem",
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
   },
   colorNameInput: {
     width: "100%",
