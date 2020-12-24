@@ -67,7 +67,7 @@ class PaletteList extends Component {
         </div>
         <Dialog open={openDeleteDialog} aira-labelledby="delete-dialog-title" onClose={this.handleDelete}>
           <DialogTitle id="delete-dialog-title">Delete this palette?</DialogTitle>
-          // TODO: - this is not a list, use DialogAction and Button component should be better
+          {/* TODO: - this is not a list, use DialogAction and Button component should be better */}
           <List>
             <ListItem button onClick={() => this.handleDelete()} >
               <ListItemAvatar>

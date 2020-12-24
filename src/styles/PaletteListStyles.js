@@ -38,9 +38,9 @@ export default {
     width: '100%',
     justifyContent: 'space-between',
     alignItems: 'center',
-    color: 'white',
+    color: 'black',
     "& a": {
-      color: 'white'
+      color: 'black'
     }
   },
   heading: {
