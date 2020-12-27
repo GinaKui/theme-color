@@ -5,7 +5,7 @@
     "name": "Gina",
     "email": "developerkui@outlook.com"
   },
-  "homepage": "https://ginakui.github.io/theme-color/",
+  "homepage": "https://ginakui.github.io/theme-color",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
@@ -34,7 +34,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
