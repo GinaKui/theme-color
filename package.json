@@ -5,7 +5,7 @@
     "name": "Gina",
     "email": "developerkui@outlook.com"
   },
-  "homepage": "https://ginakui.github.io/theme-color",
+  "homepage": "https://themepalette-gina.netlify.app",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
