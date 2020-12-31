@@ -1,6 +1,6 @@
 import chroma from 'chroma-js';
 import sizes from './sizes';
-export default {
+const styles = {
   root: {
     width: "20%",
     height: "25%",
@@ -44,3 +44,5 @@ export default {
     transition: "all .3s ease-in-out"
   }
 };
+
+export default styles;

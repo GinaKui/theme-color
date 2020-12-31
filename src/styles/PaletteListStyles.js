@@ -1,6 +1,6 @@
 import sizes from "./sizes";
 import bg from './bg.svg';
-export default {
+const styles = {
   "@global": {
     ".fade-exit": {
       opacity: 1
@@ -60,4 +60,6 @@ export default {
       gridGap: '1rem',
     }
   }
-}
+};
+
+export default styles;

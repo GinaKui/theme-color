@@ -1,4 +1,4 @@
-export default {
+const sizes = {
   up() {
   },
   down(size) {
@@ -11,4 +11,6 @@ export default {
     };
     return `@media (max-width: ${breakPoints[size]})`;
   }
-}
+};
+
+export default sizes;

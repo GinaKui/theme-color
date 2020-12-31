@@ -1,5 +1,5 @@
 import { DRAWER_WIDTH } from '../constants';
-export default theme => ({
+const styles =  theme => ({
   root: {
     display: 'flex',
   },
@@ -52,4 +52,6 @@ export default theme => ({
   button: {
     width: "50%"
   }
-})
+});
+
+export default styles;

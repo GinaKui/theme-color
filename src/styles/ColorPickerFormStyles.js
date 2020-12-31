@@ -1,4 +1,4 @@
-export default {
+const styles = {
   picker: {
     width: "100%",
     margin: "2rem auto"
@@ -14,3 +14,5 @@ export default {
     height: "70px"
   }
 };
+
+export default styles;

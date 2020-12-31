@@ -1,6 +1,5 @@
-import { FullscreenExit } from '@material-ui/icons';
 import sizes from './sizes';
-export default {
+const styles = {
   Navbar: {
     height: "6vh",
     display: "flex",
@@ -58,3 +57,5 @@ export default {
 
   }
 };
+
+export default styles;
